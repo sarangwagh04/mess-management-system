@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h2>Welcome to the Hostel Management System</h2>
+    <div>
+        <h3>Suggestions</h3>
+        <p>Provide your suggestions and feedback here:</p>
+        <a href="{% url 'suggestions:submit' %}">Submit a Suggestion</a>
+        <a href="{% url 'suggestions:view' %}">View Suggestions</a>
+    </div>
+    <div>
+        <h3>Billing</h3>
+        <p>Manage billing and payments:</p>
+        <a href="{% url 'billing:attendance' %}">Mark Attendance</a>
+        <a href="{% url 'billing:payments' %}">View Payments</a>
+    </div>
+</body>
+</html>

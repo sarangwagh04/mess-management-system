@@ -1,0 +1,17 @@
+<!-- billing/templates/billing/hostel_member_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hostel Member List</title>
+</head>
+<body>
+    <h2>Hostel Member List</h2>
+    <ul>
+    {% for member in hostel_members %}
+        <li>{{ member.user.username }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

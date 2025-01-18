@@ -1,0 +1,102 @@
+<!-- authentication/templates/authentication/user_registration.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="checkbox"] {
+            margin-top: 10px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Registration</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="id_username">Username:</label>
+            {{ user_form.username }}
+            <label for="id_email">Email:</label>
+            {{ user_form.email }}
+            <label for="id_password">Password:</label>
+            {{ user_form.password }}
+            <label for="id_first_name">First Name:</label>
+            {{ user_form.first_name }}
+            <label for="id_last_name">Last Name:</label>
+            {{ user_form.last_name }}
+            <label>Membership:</label>
+            <input type="checkbox" id="id_is_hostel_member" name="is_hostel_member">
+            <label for="id_is_hostel_member">Hostel Member</label>
+            <input type="checkbox" id="id_is_mess_member" name="is_mess_member">
+            <label for="id_is_mess_member">Mess Member</label>
+            <button type="submit">Register</button>
+        </form>
+        {% if form.errors %}
+        <div class="error-message">
+            <strong>Error:</strong> Please check the form and try again.
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
